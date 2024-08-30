@@ -5,7 +5,6 @@ require('dotenv').config()
 const PORT = process.env.PORT || 3000;
 const apiKey = process.env.WEATHERAPIKEY
 
-
 app.get('/weather', async (req, res) => {
     try {
         const city = req.query.city
@@ -13,7 +12,6 @@ app.get('/weather', async (req, res) => {
         
         const url = `http://api.weatherstack.com/current?access_key=${apiKey}&query=${city}`;
         const response = await axios.get(url);
-        console.log("RESPONSE", response);
         
         const data = response.data;    
 
@@ -33,5 +31,5 @@ app.get('/weather', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is Listening on PORT ${PORT}`);
 });
